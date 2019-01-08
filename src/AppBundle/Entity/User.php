@@ -22,11 +22,6 @@ class User extends \FOS\UserBundle\Model\User
      */
     protected $rating;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    protected $bite;
-
     public function __construct()
     {
         parent::__construct();
