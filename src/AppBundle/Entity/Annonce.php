@@ -41,7 +41,11 @@ class Annonce
      */
     private $price;
 
-    //private $id_user;
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $id_user;
 
     /**
      * @return mixed
@@ -113,5 +117,21 @@ class Annonce
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * @param mixed $id_user
+     */
+    public function setIdUser($id_user)
+    {
+        $this->id_user = $id_user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdUser()
+    {
+        return $this->id_user;
     }
 }
