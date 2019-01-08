@@ -1,0 +1,11 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_widget(form) }}
+<div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">
+        {{ 'registration.submit'|trans }}
+        <i class="material-icons right"></i>
+    </button>
+</div>
+{{ form_end(form) }}

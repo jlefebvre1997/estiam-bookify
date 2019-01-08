@@ -5,10 +5,10 @@ services:
         image: mariadb:10.3.9
         environment:
             - MYSQL_ALLOW_EMPTY_PASSWORD=true
-            - MYSQL_ROOT_PASSWORD=stripe
-            - MYSQL_DATABASE=stripe
-            - MYSQL_USER=stripe
-            - MYSQL_PASSWORD=stripe
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=bookify
+            - MYSQL_USER=bookify
+            - MYSQL_PASSWORD=bookify
         volumes:
             - mariadb:/var/lib/mysql
 
