@@ -1,12 +1,15 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: MUD0
+ * Date: 08/01/2019
+ * Time: 15:07
+ */
 
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 /**
- * @author Jérémy Lefebvre <jeremy2@widop.com>
- *
  * @ORM\Entity
  */
 class Type
@@ -19,9 +22,9 @@ class Type
     protected $id;
 
     /**
-     * @ORM\Column(type = "string")
+     * @ORM\Column(type ="string", length=255)
      */
-    protected $type;
+    private $type;
 
     /**
      * @return mixed
@@ -32,18 +35,18 @@ class Type
     }
 
     /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
      * @param mixed $type
      */
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }
