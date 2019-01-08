@@ -48,6 +48,11 @@ class Annonce
     private $id_user;
 
     /**
+     * @ORM\OneToMany(targetEntity="Contain", mappedBy="annonce")
+     */
+    private $contain;
+
+    /**
      * @return mixed
      */
     public function getId()

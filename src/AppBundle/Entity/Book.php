@@ -48,6 +48,11 @@ class Book
     private $authors;
 
     /**
+     * @ORM\OneToMany(targetEntity="Contain", mappedBy="book")
+     */
+    private $contain;
+
+    /**
      * @return mixed
      */
     public function getId()
