@@ -6,7 +6,7 @@ services:
         environment:
             - MYSQL_ALLOW_EMPTY_PASSWORD=true
             - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_DATABASE=bookify
+            - MYSQL_DATABASE=symfony
             - MYSQL_USER=bookify
             - MYSQL_PASSWORD=bookify
         volumes:

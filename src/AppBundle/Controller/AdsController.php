@@ -6,16 +6,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * Created by PhpStorm.
- * User: yannickmaelraoumbe
- * Date: 2019-01-08
- * Time: 15:22
+ * @author Jérémy Lefebvre <jeremy2@widop.com>
  */
-class BookListController extends Controller {
+class AdsController extends Controller
+{
     /**
      * @Template
      */
-    public  function listOfBooks() {
-        return ['bite' => 'ccc'];
+    public function listAction()
+    {
+
     }
 }
