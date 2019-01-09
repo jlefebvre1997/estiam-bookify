@@ -2,45 +2,28 @@
 
 {% block body %}
     <div class="row">
-        <div class="col s12 m4">
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">Card Title</span>
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">Descritpion du livre</a>
-                    <a href="#">Voir les annonces</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m4">
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">Card Title</span>
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">Descritpion du livre</a>
-                    <a href="#">Voir les annonces</a>
+        {% for book in books %}
+            <div class="col s12 m4">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{ book.title }}</span>
+                        {% if book.authors.count > 0 %}
+                            <p>De : </p><br>
+                            <ul>
+                                {% for author in book.authors %}
+                                    <li>{{ author.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class="card-action">
+                        <div class="row">
+                            <a href="{{ path('get_one_book', {'id': book.id}) }}" class="col 12">Description du livre</a>
+                            <a href="#" class="col 12">Voir les annonces</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col s12 m4">
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">Card Title</span>
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">Descritpion du livre</a>
-                    <a href="#">Voir les annonces</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
-
 {% endblock %}

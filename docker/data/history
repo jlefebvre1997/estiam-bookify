@@ -79,3 +79,5 @@ sf do:mi:diff
 sf do:da:cr
 sf do:mi:diff
 sf do:mi:mi
+sf make:repository
+composer require symfony/maker-bundle
