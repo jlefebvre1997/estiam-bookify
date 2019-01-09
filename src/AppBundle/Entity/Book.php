@@ -54,6 +54,43 @@ class Book
     private $contain;
 
     /**
+     * @ORM\Column(type ="string", length=255)
+     */
+    private $description;
+
+    /**
+     * @return mixed
+     */
+    public function getContain()
+    {
+        return $this->contain;
+    }
+
+    /**
+     * @param mixed $contain
+     */
+    public function setContain($contain): void
+    {
+        $this->contain = $contain;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
+    }
+
+    /**
      * @return mixed
      */
     public function getId()
