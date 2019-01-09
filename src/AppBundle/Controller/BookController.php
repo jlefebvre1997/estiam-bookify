@@ -38,20 +38,12 @@ class BookController extends Controller
     /**
      * @Template
      *
-     * @Route("/{id}/update", name="update_one_book")
+     * @Route("/search", name="search_one_book")
      */
-    public function update(Book $book){
+    public function search(Book $book){
         return ['book' => $book];
     }
 
-    /**
-     * @Template
-     *
-     * @Route("/{id}/delete", name="delete_one_book")
-     */
-    public function delete(Book $book){
-        return ['book' => $book];
-    }
 
     /**
      * @Route("/{id}/annonces", name = "annonces_by_book")
