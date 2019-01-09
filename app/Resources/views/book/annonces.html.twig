@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>coucou</h1>
-    <p>brrkghlrgbor</p>
     <div class="row">
         {% for annonce in annonces %}
-            <p>bleu</p>
+            <h1>{{ annonce.annonce.title }}</h1>
+            <p>Prix du lot : {{ annonce.annonce.price }}</p>
+            <p>Quantité : {{ annonce.qte }}</p>
+            <h6>{{ annonce.annonce.description }}</h6>
         {% endfor %}
     </div>
 {% endblock %}
