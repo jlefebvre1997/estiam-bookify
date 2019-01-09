@@ -7,5 +7,8 @@
                {{ book.title }}
             </h1>
         </div>
+        <h5>{{ book.description }}</h5>
+
+        <h6> <a href="{{ path('annonces_by_book', {'id': book.id}) }}" class="col 12">Voir les annonces concernant ce livre</a></h6>
     </div>
 {% endblock %}

@@ -1,0 +1,40 @@
+<?php
+
+namespace Application\Migrations;
+
+use Doctrine\DBAL\Migrations\AbstractMigration;
+use Doctrine\DBAL\Schema\Schema;
+
+/**
+ * Auto-generated Migration: Please modify to your needs!
+ */
+class Version20190109130827 extends AbstractMigration
+{
+    /**
+     * @param Schema $schema
+     */
+    public function up(Schema $schema)
+    {
+        // this up() migration is auto-generated, please modify it to your needs
+        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+
+        $this->addSql('ALTER TABLE annonce CHANGE user_id user_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE book ADD description VARCHAR(255) NOT NULL, CHANGE type_id type_id INT DEFAULT NULL, CHANGE rating rating INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE contain CHANGE book_id book_id INT DEFAULT NULL, CHANGE annonce_id annonce_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE user CHANGE salt salt VARCHAR(255) DEFAULT NULL, CHANGE last_login last_login DATETIME DEFAULT NULL, CHANGE confirmation_token confirmation_token VARCHAR(180) DEFAULT NULL, CHANGE password_requested_at password_requested_at DATETIME DEFAULT NULL, CHANGE rating rating INT DEFAULT NULL');
+    }
+
+    /**
+     * @param Schema $schema
+     */
+    public function down(Schema $schema)
+    {
+        // this down() migration is auto-generated, please modify it to your needs
+        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+
+        $this->addSql('ALTER TABLE annonce CHANGE user_id user_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE book DROP description, CHANGE type_id type_id INT DEFAULT NULL, CHANGE rating rating INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE contain CHANGE annonce_id annonce_id INT DEFAULT NULL, CHANGE book_id book_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE user CHANGE salt salt VARCHAR(255) DEFAULT \'NULL\' COLLATE utf8_unicode_ci, CHANGE last_login last_login DATETIME DEFAULT \'NULL\', CHANGE confirmation_token confirmation_token VARCHAR(180) DEFAULT \'NULL\' COLLATE utf8_unicode_ci, CHANGE password_requested_at password_requested_at DATETIME DEFAULT \'NULL\', CHANGE rating rating INT DEFAULT NULL');
+    }
+}

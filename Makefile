@@ -58,6 +58,10 @@ cc:                                                          ## Clear the cache 
 	$(SYMFONY) cache:clear --no-warmup
 	$(SYMFONY) cache:warmup
 
+migration:
+	$(SYMFONY) do:mi:diff
+	$(SYMFONY) do:mi:mi
+
 node:                                                        ## Run interactive bash inside node
 	$(DOCKER_COMPOSE) run --rm node sh
 
