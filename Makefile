@@ -62,6 +62,9 @@ migration:
 	$(SYMFONY) do:mi:diff
 	$(SYMFONY) do:mi:mi
 
+fixtures:
+	$(SYMFONY) do:fi:load
+
 node:                                                        ## Run interactive bash inside node
 	$(DOCKER_COMPOSE) run --rm node sh
 

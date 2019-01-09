@@ -49,20 +49,20 @@ class Book
      */
     private $authors;
 
-    public function __construct()
-    {
-        $this->authors = new ArrayCollection();
-    }
-
     /**
      * @ORM\OneToMany(targetEntity="Contain", mappedBy="book")
      */
-    private $contain;
+    protected $contain;
 
     /**
      * @ORM\Column(type ="string", length=255)
      */
     private $description;
+
+    public function __construct()
+    {
+        $this->authors = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -182,6 +182,14 @@ class Book
     public function setAuthors($authors)
     {
         $this->authors = $authors;
+    }
+
+    /**
+     * @param Author $author
+     */
+    public function addAuthor(Author $author)
+    {
+        $this->authors->add($author);
     }
 
     public function getAnnonces()

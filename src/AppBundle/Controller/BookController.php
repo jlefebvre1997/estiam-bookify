@@ -15,8 +15,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  *
  * @Route("/books")
  */
-class BookController extends Controller {
-
+class BookController extends Controller
+{
     /**
      * @Template
      *

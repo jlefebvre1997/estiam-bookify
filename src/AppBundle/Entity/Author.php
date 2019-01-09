@@ -8,7 +8,9 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity
  */
@@ -30,6 +32,11 @@ class Author
      * @ORM\ManyToMany(targetEntity="Book", mappedBy="authors")
      */
     private $books;
+
+    public function __construct()
+    {
+        $this->books = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -69,5 +76,10 @@ class Author
     public function getBooks()
     {
         return $this->books;
+    }
+
+    public function addBook(Book $book)
+    {
+        $this->books->add($book);
     }
 }

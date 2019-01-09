@@ -49,13 +49,19 @@ class AppFixtures extends Fixture implements  ORMFixtureInterface
         foreach ($authors as $author){
             $authorName = new Author();
             $authorName->setName($author);
-            $manager->persist($authorName);
-        }
 
-        foreach ($books as $book){
-            $bookName = new Book();
-            $bookName->setTitle($book);
-            $manager->persist($bookName);
+            foreach ($books as $book){
+                $bookName = new Book();
+                $bookName->setTitle($book);
+                $bookName->setDescription("description");
+                $bookName->addAuthor($authorName);
+
+                $authorName->addBook($bookName);
+
+                $manager->persist($bookName);
+            }
+
+            $manager->persist($authorName);
         }
 
         $manager->flush();

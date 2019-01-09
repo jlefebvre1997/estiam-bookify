@@ -93,3 +93,16 @@ sf do:mi:mi
 sf do:sc:va
 sf do:mi:mi
 sf do:sc:va
+sf do:da:drop --force
+sf do:da:cr
+sf do:mi:mi
+sf do:da:drop --force
+sf do:da:cr
+sf do:mi:diff
+sf do:mi:mi
+sf do:sc:va
+sf do:sc:
+sf do:da:drop --force
+sf do:da:cr
+sf do:mi:diff
+sf do:mi:mi
