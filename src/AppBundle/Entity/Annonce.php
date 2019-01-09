@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -52,6 +53,11 @@ class Annonce
      * @ORM\OneToMany(targetEntity="Contain", mappedBy="annonce")
      */
     protected $contain;
+
+    public function __construct()
+    {
+        $this->contain = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -157,10 +163,20 @@ class Annonce
         $books = [];
 
         foreach ($this->contain as $contain) {
-            $books[]['book'] = $contain->getBook();
-            $books[]['quantity'] = $contain->getQuantity();
+            $books[] = [
+                'book' => $contain->getBook(),
+                'qte'  => $contain->getQte()
+            ];
         }
 
         return $books;
+    }
+
+    /**
+     * @param Contain $contain
+     */
+    public function addContain(Contain $contain)
+    {
+        $this->contain->add($contain);
     }
 }

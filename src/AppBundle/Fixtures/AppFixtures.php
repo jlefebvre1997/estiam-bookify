@@ -7,8 +7,10 @@
  */
 namespace AppBundle\Fixtures;
 
+use AppBundle\Entity\Annonce;
 use AppBundle\Entity\Author;
 use AppBundle\Entity\Book;
+use AppBundle\Entity\Contain;
 use AppBundle\Entity\Type;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\ORMFixtureInterface;
@@ -46,15 +48,28 @@ class AppFixtures extends Fixture implements  ORMFixtureInterface
             $manager->persist($category);
         }
 
-        foreach ($authors as $author){
+        foreach ($authors as $author) {
             $authorName = new Author();
             $authorName->setName($author);
+
+            $annonce = new Annonce();
+            $annonce->setUser($authorName);
 
             foreach ($books as $book){
                 $bookName = new Book();
                 $bookName->setTitle($book);
                 $bookName->setDescription("description");
                 $bookName->addAuthor($authorName);
+
+                $contain = new Contain();
+
+                $contain->setAnnonce($annonce);
+                $contain->setBook($bookName);
+
+                $annonce->addContain($contain);
+                $bookName->addContain($contain);
+
+                $contain->setQte(rand(0, 10));
 
                 $authorName->addBook($bookName);
 

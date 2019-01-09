@@ -62,6 +62,7 @@ class Book
     public function __construct()
     {
         $this->authors = new ArrayCollection();
+        $this->contain = new ArrayCollection();
     }
 
     /**
@@ -197,10 +198,20 @@ class Book
         $annonces = [];
 
         foreach ($this->contain as $contain) {
-            $annonces[]['annonce'] = $contain->getAnnonce();
-            $annonces[]['qte'] = $contain->getQte();
+            $annonces[] = [
+                'annonce' => $contain->getAnnonce(),
+                'qte'     => $contain->getQte()
+            ];
         }
 
         return $annonces;
+    }
+
+    /**
+     * @param Contain $contain
+     */
+    public function addContain(Contain $contain)
+    {
+        $this->contain->add($contain);
     }
 }
