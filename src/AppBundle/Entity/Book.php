@@ -190,7 +190,7 @@ class Book
 
         foreach ($this->contain as $contain) {
             $annonces[]['annonce'] = $contain->getAnnonce();
-            $annonces[]['quantity'] = $contain->getQuantity();
+            $annonces[]['qte'] = $contain->getQte();
         }
 
         return $annonces;
