@@ -54,7 +54,7 @@ class BookController extends Controller {
     }
 
     /**
-     * @Route("/{id}/annonces", name = "annonces_by_book)
+     * @Route("/{id}/annonces", name = "annonces_by_book")
      *
      * @Template
      *
