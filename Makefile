@@ -63,6 +63,9 @@ migration:
 	$(SYMFONY) do:mi:mi
 
 fixtures:
+	$(SYMFONY) do:da:drop --force
+	$(SYMFONY) do:da:cr
+	$(SYMFONY) do:mi:mi
 	$(SYMFONY) do:fi:load
 
 node:                                                        ## Run interactive bash inside node

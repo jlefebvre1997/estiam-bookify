@@ -10,14 +10,21 @@ namespace AppBundle\Fixtures;
 use AppBundle\Entity\Annonce;
 use AppBundle\Entity\Author;
 use AppBundle\Entity\Book;
-use AppBundle\Entity\Contain;
 use AppBundle\Entity\Type;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\ORMFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use FOS\UserBundle\Model\UserManagerInterface;
 
 class AppFixtures extends Fixture implements  ORMFixtureInterface
 {
+    private $userManager;
+
+    public function __construct(UserManagerInterface $userManager)
+    {
+        $this->userManager = $userManager;
+    }
+
     /**
      * @param ObjectManager $manager
      */
@@ -41,6 +48,13 @@ class AppFixtures extends Fixture implements  ORMFixtureInterface
            'Kentarō Miura',
         ];
 
+        $user = $this->userManager->createUser();
+        $user->setUsername("coucou");
+        $user->setPlainPassword("coucou");
+        $user->setEmail('email@email.com');
+
+        $this->userManager->updateUser($user);
+
         foreach (Type::TYPES as $name) {
             $category = new Type();
             $category->setType($name);
@@ -53,7 +67,11 @@ class AppFixtures extends Fixture implements  ORMFixtureInterface
             $authorName->setName($author);
 
             $annonce = new Annonce();
-            $annonce->setUser($authorName);
+            $annonce->setUser($user);
+            $annonce->setTitle('title');
+            $annonce->setLibelle('libelle');
+            $annonce->setDescription('description');
+            $annonce->setPrice(10000);
 
             foreach ($books as $book){
                 $bookName = new Book();
@@ -61,21 +79,12 @@ class AppFixtures extends Fixture implements  ORMFixtureInterface
                 $bookName->setDescription("description");
                 $bookName->addAuthor($authorName);
 
-                $contain = new Contain();
-
-                $contain->setAnnonce($annonce);
-                $contain->setBook($bookName);
-
-                $annonce->addContain($contain);
-                $bookName->addContain($contain);
-
-                $contain->setQte(rand(0, 10));
-
                 $authorName->addBook($bookName);
 
                 $manager->persist($bookName);
             }
 
+            $manager->persist($annonce);
             $manager->persist($authorName);
         }
 

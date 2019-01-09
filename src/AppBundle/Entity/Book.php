@@ -36,7 +36,7 @@ class Book
     /**
      * @ORM\Column(type ="integer", nullable=true)
      */
-    private $rating;
+    private $rating = 0;
 
     /**
      * @ORM\ManyToOne(targetEntity="Type")
