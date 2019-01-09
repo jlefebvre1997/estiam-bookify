@@ -19,7 +19,7 @@
                     <div class="card-action">
                         <div class="row">
                             <a href="{{ path('get_one_book', {'id': book.id}) }}" class="col 12">Description du livre</a>
-                            <a href="#" class="col 12">Voir les annonces</a>
+                            <a href="{{ path('annonces_by_book', {'id': book.id}) }}" class="col 12">Voir les annonces</a>
                         </div>
                     </div>
                 </div>
