@@ -43,7 +43,7 @@ class Annonce
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="annonces")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
