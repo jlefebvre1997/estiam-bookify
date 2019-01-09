@@ -22,6 +22,11 @@ class User extends \FOS\UserBundle\Model\User
      */
     protected $rating;
 
+    /**
+     * @ORM\OneToMany(targetEntity = "Annonce", mappedBy = "user")
+     */
+    protected $annonces;
+
     public function __construct()
     {
         parent::__construct();

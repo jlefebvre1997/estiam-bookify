@@ -52,4 +52,20 @@ class BookController extends Controller {
     public function delete(Book $book){
         return ['book' => $book];
     }
+
+    /**
+     * @Route("/{id}/annonces", name = "annonces_by_book)
+     *
+     * @Template
+     *
+     * @param Book $book
+     *
+     * @return array
+     */
+    public function annonces(Book $book)
+    {
+       $annonces = $book->getAnnonces();
+
+       return ['annonces' => $annonces];
+    }
 }

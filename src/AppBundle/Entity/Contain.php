@@ -24,12 +24,12 @@ class Contain
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Annonce", inversedBy="annonces")
+     * @ORM\ManyToOne(targetEntity="Annonce", inversedBy="contain")
      */
     private $annonce;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Book", inversedBy="books")
+     * @ORM\ManyToOne(targetEntity="Book", inversedBy="contain")
      */
     private $book;
 

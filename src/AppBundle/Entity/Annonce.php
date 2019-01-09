@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity
  */
@@ -45,7 +46,7 @@ class Annonce
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $id_user;
+    private $user;
 
     /**
      * @ORM\OneToMany(targetEntity="Contain", mappedBy="annonce")
@@ -125,18 +126,49 @@ class Annonce
     }
 
     /**
-     * @param mixed $id_user
+     * @param mixed $user
      */
-    public function setIdUser($id_user)
+    public function setUser($user)
     {
-        $this->id_user = $id_user;
+        $this->user = $user;
     }
 
     /**
      * @return mixed
      */
-    public function getIdUser()
+    public function getUser()
     {
-        return $this->id_user;
+        return $this->user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getContain()
+    {
+        return $this->contain;
+    }
+
+    /**
+     * @param mixed $contain
+     */
+    public function setContain($contain)
+    {
+        $this->contain = $contain;
+    }
+
+    /**
+     * @return array
+     */
+    public function getBooks()
+    {
+        $books = [];
+
+        foreach ($this->contain as $contain) {
+            $books[]['book'] = $contain->getBook();
+            $books[]['quantity'] = $contain->getQuantity();
+        }
+
+        return $books;
     }
 }

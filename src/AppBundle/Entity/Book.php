@@ -140,4 +140,16 @@ class Book
     {
         $this->authors = $authors;
     }
+
+    public function getAnnonces()
+    {
+        $annonces = [];
+
+        foreach ($this->contain as $contain) {
+            $annonces[]['annonce'] = $contain->getAnnonce();
+            $annonces[]['quantity'] = $contain->getQuantity();
+        }
+
+        return $annonces;
+    }
 }
