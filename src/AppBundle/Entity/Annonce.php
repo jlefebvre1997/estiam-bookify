@@ -9,7 +9,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * @ORM\Entity
  */
@@ -43,15 +42,10 @@ class Annonce
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="annonces")
+     * @ORM\ManyToOne(targetEntity="User",  inversedBy="annonces")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Contain", mappedBy="annonce")
-     */
-    private $contain;
 
     /**
      * @return mixed
@@ -139,14 +133,6 @@ class Annonce
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getContain()
-    {
-        return $this->contain;
     }
 
     /**

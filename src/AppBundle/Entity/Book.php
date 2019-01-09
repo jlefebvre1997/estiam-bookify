@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,7 +29,7 @@ class Book
     private $title;
 
     /**
-     * @ORM\Column(type ="string", length=255)
+     * @ORM\Column(type ="string", length=255, nullable=true)
      */
     private $collection;
 
@@ -47,6 +48,11 @@ class Book
      * @ORM\ManyToMany(targetEntity="Author", inversedBy="books")
      */
     private $authors;
+
+    public function __construct()
+    {
+        $this->authors = new ArrayCollection();
+    }
 
     /**
      * @ORM\OneToMany(targetEntity="Contain", mappedBy="book")

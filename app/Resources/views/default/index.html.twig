@@ -4,6 +4,24 @@
     <div>
         <div>
             <h1>{{ text }}</h1>
+            <div class="row">
+                {% if authors is defined %}
+                    <h2>Auteurs : </h2>
+                    {% for author in authors %}
+                        <div class="col s3 box-author">
+                            <p><a href="{{ path('bookAuthor', {'id' : author.id}) }}">{{ author.name }}</a></p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                {% if books is defined %}
+                    <h2>Les livres de {{ author.name }}</h2>
+                    {% for book in books %}
+                        <div class="col s3 box-author">
+                            <p>{{ book.title }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endblock %}

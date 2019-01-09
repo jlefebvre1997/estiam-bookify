@@ -14,6 +14,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Type
 {
+    const TYPES = [
+        'Science-fiction',
+        'Polar',
+        'Thriller',
+        'Fantastique',
+        'Romantique',
+        'Bande dessinée',
+        'Manga',
+    ];
+
     /**
      * @ORM\Id
      * @ORM\Column(type = "integer")
