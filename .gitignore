@@ -16,7 +16,6 @@
 /vendor/
 /web/bundles/
 
-docker/
 .idea/
 ../.DS_Store
 .DS_Store

@@ -1,0 +1,81 @@
+sf
+bite
+sf make:controller
+ls
+ls templates/home/
+sf debug:twig
+composer require stripe/stripe-php
+sf make:controller
+composer require annotations
+composer require templating
+composer remove templating
+composer require template
+composer require debug
+composer require profiler
+sf make:
+sf make:controller
+sf do:mi:mi
+php bin/console --env=prod doctrine:migrations:migrate --no-interaction --no-debug
+sf debug:router
+sf do:da:create
+sf make:entity
+sf make:controller
+sf make:migrations
+sf make:migration
+sf do:mi:mi
+sf
+sf make:form
+sf debug:router
+sf make:form
+composer require form validator
+sf make:form
+sf make
+sf make:form
+sf do:da:drop --force
+sf do:da:create
+sf do:da:drop --force
+sf make:mig
+sf do:mi:mi
+sf make:entity
+sf make:mig
+sf do:mi:mi
+sf make:form
+sf make:con
+sf make:form
+composer require symfony/security-bundle
+echo $ADMIN_PASSWORD
+sf make:command
+composer require sentry/sentry-symfony
+composer require sentry/sentry-symfony --no-dev
+composer require sentry/sentry-symfony
+ls -la
+sf debug:router
+composer create-project composer symfony/framework-standard-edition tmp "3.4.*"
+composer create-project symfony/framework-standard-edition tmp "3.4.*"
+mv tmp/* .
+rmdir tmp
+ls
+ls web/
+composer require friendsofsymfony/user-bundle "~2.0"
+sf
+composer require symfony/templating
+sf
+sf do:sc:va
+sf c:c
+sf do:sc:va
+sf do:sc:update
+sf do:sc:update --force
+sf debug:router
+sf do:mi:diff
+composer require doctrine/doctrine-migrations-bundle "^1.0"
+sf do:mi:diff
+sf do:mi:mi
+sf do:mi:diff
+sf do:da:drop --force
+sf do:mi:diff
+sf do:mi:mi
+sf do:da:drop --force
+sf do:mi:diff
+sf do:da:cr
+sf do:mi:diff
+sf do:mi:mi
