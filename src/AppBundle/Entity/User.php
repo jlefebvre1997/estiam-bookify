@@ -74,4 +74,20 @@ class User extends \FOS\UserBundle\Model\User
     {
         $this->annonces->remove($annonce);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAnnonces()
+    {
+        return $this->annonces;
+    }
+
+    /**
+     * @param mixed $annonces
+     */
+    public function setAnnonces($annonces): void
+    {
+        $this->annonces = $annonces;
+    }
 }

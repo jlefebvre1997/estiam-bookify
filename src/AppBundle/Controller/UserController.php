@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Annonce;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -10,21 +9,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 /**
  * @author Jérémy Lefebvre <jeremy2@widop.com>
  *
- * @Route("/annonces")
+ * @Route("/me")
  */
-class AnnonceController extends Controller
+class UserController extends Controller
 {
     /**
      * @Template
      *
-     * @param Annonce $annonce
-     *
-     * @Route("/view/{id}", name = "annonce_view")
-     *
-     * @return array
+     * @Route("/annonces", name = "user_annonces")
      */
-    public function view(Annonce $annonce)
+    public function annonces()
     {
-        return ['annonce' => $annonce];
+        return [
+            'annonces' => $this->getUser()->getAnnonces()
+        ];
     }
 }
