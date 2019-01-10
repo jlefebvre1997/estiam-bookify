@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for result in results %}
+        <p>{{ result.title }}</p>
+    {% endfor %}
+{% endblock %}

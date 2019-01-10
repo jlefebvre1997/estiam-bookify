@@ -213,4 +213,12 @@ class Annonce
     {
         return $this->type;
     }
+
+    /**
+     * @return mixed
+     */
+    public function googlify()
+    {
+        return 'https://www.google.com/search?q=' . str_replace(' ', '+', $this->title);
+    }
 }

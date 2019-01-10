@@ -4,6 +4,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Annonce;
 use AppBundle\Form\AnnonceType;
+use AppBundle\Form\SearchType;
+use AppBundle\Model\Search;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -31,17 +33,44 @@ class AnnonceController extends Controller
     }
 
     /**
+     * @Route("/search", name = "annonce_search")
+     *
+     * @param Request $request
+     *
+     * @return array|string
+     */
+    public function search(Request $request)
+    {
+        $form = $this->createForm(SearchType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var Search $search */
+            $search = $form->getData();
+
+            return $this->render('@App/annonce/results.html.twig', [
+                'results' => $this->getDoctrine()->getRepository(Annonce::class)->search($search)
+            ]);
+        }
+
+        return $this->render('@App/annonce/search.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
      * @Template
      *
      * @param Request $request
      *
      * @Route("/create-annonce", name="annonce_form")
      *
-     * @return array
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @throws \Exception
      */
     public function form(Request $request){
-        $annonce = new Annonce();
-
         $form = $this->createForm(AnnonceType::class);
         $form->handleRequest($request);
 
