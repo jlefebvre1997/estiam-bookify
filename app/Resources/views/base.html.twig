@@ -11,7 +11,7 @@
     <body>
         <nav class="cyan lighten-2">
             <div class="nav-wrapper">
-                <a href="{{ path('homepage') }}" class="brand-logo"><img src="../images/logoTrans2.png" alt=""></a>
+                <a href="{{ path('homepage') }}" class="brand-logo"><img src="{{ asset('images/logoTrans2.png') }}" alt=""></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li>
