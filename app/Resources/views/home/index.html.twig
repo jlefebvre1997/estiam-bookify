@@ -9,6 +9,8 @@
                     <div class="card-content white-text">
                         <span class="card-title">{{ annonce.title }}</span>
                         <p>{{ annonce.description }}</p>
+                        <br/>
+                        <p>{{ annonce.createdAt|date('d/m/Y à H:i') }}</p>
                     </div>
                     <div class="card-action">
                         <div class="row">
