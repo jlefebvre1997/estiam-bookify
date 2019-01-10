@@ -10,8 +10,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @author Jérémy Lefebvre <jeremy2@widop.com> && Maxence Vast <mvast@agencedps.com>
@@ -68,11 +66,11 @@ class AnnonceController extends Controller
      *
      * @Route("/create-annonce", name="annonce_form")
      *
-     * @return array
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @throws \Exception
      */
     public function form(Request $request){
-        $annonce = new Annonce();
-
         $form = $this->createForm(AnnonceType::class);
         $form->handleRequest($request);
 

@@ -1,0 +1,12 @@
+{% block checkbox_widget %}
+    <label for="{{ id }}">
+        <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        <span>{{ label }}</span>
+    </label>
+{% endblock %}
+
+{#{% block form_label %}#}
+    {#{% if 'checkbox' not in block_prefixes %}#}
+        {#{{ parent() }}#}
+    {#{% endif %}#}
+{#{% endblock form_label %}#}

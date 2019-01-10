@@ -1,18 +1,22 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme form 'form_themes/checkbox.html.twig' %}
+
+
+
 {% block body %}
     {{ form_start(form) }}
 
     {{ form_row(form.search) }}
 
     <div class="row">
-        <div class="col 6">
+        <div class="col s4 m4 l4">
             {{ form_row(form.authorFilter) }}
         </div>
-        <div class="col 6">
+        <div class="col s4 m4 l4">
             {{ form_row(form.titleFilter) }}
         </div>
-        <div class="col 4">
+        <div class="col s4 m4 l4">
             {{ form_row(form.cityFilter) }}
         </div>
     </div>
