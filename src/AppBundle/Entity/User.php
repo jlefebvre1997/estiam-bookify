@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +31,8 @@ class User extends \FOS\UserBundle\Model\User
     public function __construct()
     {
         parent::__construct();
+
+        $this->annonces = new ArrayCollection();
     }
 
     /**
@@ -54,5 +57,21 @@ class User extends \FOS\UserBundle\Model\User
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param Annonce $annonce
+     */
+    public function addAnnonce(Annonce $annonce)
+    {
+        $this->annonces->add($annonce);
+    }
+
+    /**
+     * @param Annonce $annonce
+     */
+    public function removeAnnonce(Annonce $annonce)
+    {
+        $this->annonces->remove($annonce);
     }
 }

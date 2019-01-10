@@ -1,14 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: MUD0
- * Date: 08/01/2019
- * Time: 14:34
- */
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,6 +15,16 @@ class Annonce
      * @ORM\GeneratedValue
      */
     protected $id;
+
+    /**
+     * @ORM\Column(type = "datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column
+     */
+    private $city;
 
     /**
      * @ORM\Column(type ="string", length=255)
@@ -50,14 +53,9 @@ class Annonce
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="Contain", mappedBy="annonce")
+     * @ORM\Column
      */
-    protected $contain;
-
-    public function __construct()
-    {
-        $this->contain = new ArrayCollection();
-    }
+    private $author;
 
     /**
      * @return mixed
@@ -148,35 +146,50 @@ class Annonce
     }
 
     /**
-     * @param mixed $contain
+     * @return mixed
      */
-    public function setContain($contain)
+    public function getAuthor()
     {
-        $this->contain = $contain;
+        return $this->author;
     }
 
     /**
-     * @return array
+     * @param mixed $author
      */
-    public function getBooks()
+    public function setAuthor($author): void
     {
-        $books = [];
-
-        foreach ($this->contain as $contain) {
-            $books[] = [
-                'book' => $contain->getBook(),
-                'qte'  => $contain->getQte()
-            ];
-        }
-
-        return $books;
+        $this->author = $author;
     }
 
     /**
-     * @param Contain $contain
+     * @return mixed
      */
-    public function addContain(Contain $contain)
+    public function getCreatedAt()
     {
-        $this->contain->add($contain);
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param mixed $city
+     */
+    public function setCity($city): void
+    {
+        $this->city = $city;
     }
 }
