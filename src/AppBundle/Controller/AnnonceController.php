@@ -6,8 +6,6 @@ use AppBundle\Entity\Annonce;
 use AppBundle\Form\AnnonceType;
 use AppBundle\Form\SearchType;
 use AppBundle\Model\Search;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
