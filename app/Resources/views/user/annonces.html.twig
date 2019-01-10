@@ -9,11 +9,13 @@
                     <div class="card-content white-text">
                         <span class="card-title">{{ annonce.title }}</span>
                         <p>{{ annonce.description }}</p>
+                        <br/>
+                        <p>{{ annonce.createdAt|date('d/m/Y à H:i') }}</p>
                     </div>
                     <div class="card-action">
-                        <div class="row">
-                            <a href="{{ path('annonce_view', {'id': annonce.id}) }}" class="col 12">Voir l'annonce</a>
-                        </div>
+                        <a href="{{ path('annonce_view', {'id': annonce.id}) }}">Voir l'annonce</a>
+                        <br/>
+                        <a href="#">Supprimer l'annonce</a>
                     </div>
                 </div>
             </div>

@@ -25,5 +25,7 @@ class TypeFixtures extends Fixture implements ORMFixtureInterface
 
             $manager->persist($category);
         }
+
+        $manager->flush();
     }
 }

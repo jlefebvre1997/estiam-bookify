@@ -3,6 +3,7 @@
 namespace AppBundle\Fixtures;
 
 use AppBundle\Entity\Annonce;
+use AppBundle\Entity\Type;
 use AppBundle\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\ORMFixtureInterface;
@@ -46,6 +47,7 @@ class AppFixtures extends Fixture implements  ORMFixtureInterface
             $annonce->setAuthor('Author');
             $annonce->setCity('City');
             $annonce->setCreatedAt(new \DateTime('now'));
+            $annonce->setType(Type::TYPES[0]);
 
             $manager->persist($annonce);
 

@@ -42,9 +42,14 @@ class Annonce
     private $description;
 
     /**
-     * @ORM\Column(type ="smallint")
+     * @ORM\Column(type ="bigint")
      */
     private $price;
+
+    /**
+     * @ORM\Column(type ="string", length=50)
+     */
+    private $type;
 
     /**
      * @ORM\ManyToOne(targetEntity="User",  inversedBy="annonces")
@@ -191,5 +196,21 @@ class Annonce
     public function setCity($city): void
     {
         $this->city = $city;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type): void
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

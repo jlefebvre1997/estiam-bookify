@@ -26,3 +26,4 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/me/, role: ROLE_USER}
+        - { path: /annonces/create-annonce, role: ROLE_USER }
