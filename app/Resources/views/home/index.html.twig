@@ -4,21 +4,24 @@
     <h2>Les plus récentes : </h2>
     <div class="row">
         {% for annonce in annonces %}
-            <div class="col s12 m4">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">{{ annonce.title }}</span>
-                        <p>{{ annonce.description }}</p>
-                        <br/>
-                        <p>{{ annonce.createdAt|date('d/m/Y à H:i') }}</p>
-                    </div>
-                    <div class="card-action">
-                        <div class="row">
-                            <a href="{{ path('annonce_view', {'id': annonce.id}) }}" class="col 12">Voir l'annonce</a>
+                <div class="col s12 m4">
+                    <div class="card-medium">
+                        <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title">{{ annonce.title }}</span>
+                                <p class="truncate">{{ annonce.description }}</p>
+                                <br/>
+                                <p>{{ annonce.createdAt|date('d/m/Y à H:i') }}</p>
+                            </div>
+                            <div class="card-action">
+                                <div class="row">
+                                    <a href="{{ path('annonce_view', {'id': annonce.id}) }}" class="col 12">Voir
+                                        l'annonce</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         {% endfor %}
     </div>
 {% endblock %}
