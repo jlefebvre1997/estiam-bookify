@@ -6,8 +6,10 @@ use AppBundle\Entity\Annonce;
 use AppBundle\Form\AnnonceType;
 use AppBundle\Form\SearchType;
 use AppBundle\Model\Search;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @author Jérémy Lefebvre <jeremy2@widop.com> && Maxence Vast <mvast@agencedps.com>
@@ -87,5 +89,20 @@ class AnnonceController extends Controller
         return [
             'form' => $form->createView(),
         ];
+    }
+
+    /**
+     * @Route("/delete-annonce/{id}", name="delete_annonce")
+     *
+     * @param Annonce $annonce
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteform(Annonce $annonce){
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($annonce);
+        $em->flush();
+
+        return $this->redirectToRoute('user_annonces');
     }
 }

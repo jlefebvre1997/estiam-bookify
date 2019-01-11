@@ -15,7 +15,7 @@
                     <div class="card-action">
                         <a href="{{ path('annonce_view', {'id': annonce.id}) }}">Voir l'annonce</a>
                         <br/>
-                        <a href="#">Supprimer l'annonce</a>
+                        <a href="{{ path('delete_annonce', {'id': annonce.id}) }}">Supprimer l'annonce</a>
                     </div>
                 </div>
             </div>
