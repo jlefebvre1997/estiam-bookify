@@ -13,6 +13,11 @@
             <div class="nav-wrapper">
                 <a href="{{ path('homepage') }}" class="brand-logo"><img src="{{ asset('images/logoTrans2.png') }}" alt=""></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <a href="{{ path('annonce_search') }}">
+                            Rechercher une annonce
+                        </a>
+                    </li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li>
                             <a href="{{ path('annonce_form') }}">Créer une annonce</a>
