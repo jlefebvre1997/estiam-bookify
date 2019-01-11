@@ -33,6 +33,26 @@ class AnnonceController extends Controller
     }
 
     /**
+     * @Template
+     *
+     * @Route("/list", name = "annonces_list")
+     *
+     * @return array
+     */
+    public function all()
+    {
+        $annonces = $this
+            ->getDoctrine()
+            ->getRepository(Annonce::class)
+            ->findAll()
+        ;
+
+        return [
+            'annonces' => $annonces
+        ];
+    }
+
+    /**
      * @Route("/search", name = "annonce_search")
      *
      * @param Request $request

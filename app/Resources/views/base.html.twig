@@ -18,6 +18,11 @@
                             Rechercher une annonce
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ path('annonces_list') }}">
+                            Toutes les annonces
+                        </a>
+                    </li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li>
                             <a href="{{ path('annonce_form') }}">Créer une annonce</a>
