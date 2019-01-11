@@ -15,6 +15,7 @@
                     <p>Description : <br/>{{ annonce.description }}</p>
                     <br/>
                     <p>Prix : {{ annonce.price }} €</p>
+                    <a href="{{ annonce.googlify }}" target="_blank">Voir sur Google</a>
                 </div>
                 <div class="card-action">
                     {% if annonce.user.email is defined  %}
