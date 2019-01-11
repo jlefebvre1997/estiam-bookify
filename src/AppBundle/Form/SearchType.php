@@ -3,7 +3,6 @@
 namespace AppBundle\Form;
 
 use AppBundle\Model\Search;
-use Doctrine\DBAL\Types\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -26,15 +25,18 @@ class SearchType extends AbstractType
             ->add('search', TextType::class)
             ->add('authorFilter', CheckboxType::class, [
                 'data'     => true,
-                'required' => false
+                'required' => false,
+                'label'    => 'Rechercher par auteur'
             ])
             ->add('titleFilter', CheckboxType::class, [
                 'data'     => true,
-                'required' => false
+                'required' => false,
+                'label'    => 'Rechercher par titre'
             ])
             ->add('cityFilter', CheckboxType::class, [
                 'data'     => true,
-                'required' => false
+                'required' => false,
+                'label'    => 'Rechercher par ville'
             ])
             ->add('minPrice', NumberType::class, [
                 'required' => false

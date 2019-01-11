@@ -1,7 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% for result in results %}
-        <p>{{ result.title }}</p>
-    {% endfor %}
+    <div class="row">
+        {% for annonce in results %}
+            <div class="col s12 m4">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{ annonce.title }}</span>
+                        <p>{{ annonce.description }}</p>
+                        <br/>
+                        <p>{{ annonce.createdAt|date('d/m/Y à H:i') }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ path('annonce_view', {'id': annonce.id}) }}">Voir l'annonce</a>
+                        <br/>
+                        <a href="#">Supprimer l'annonce</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -54,14 +54,14 @@ class AnnonceRepository extends EntityRepository
         if ($search->getMinPrice()) {
             $qb
                 ->andWhere('a.price >= :price')
-                ->setParameter('price', $search->getMinPrice() * 100)
+                ->setParameter('price', $search->getMinPrice())
             ;
         }
 
         if ($search->getMaxPrice()) {
             $qb
                 ->andWhere('a.price <= :price')
-                ->setParameter('price', $search->getMaxPrice() * 100)
+                ->setParameter('price', $search->getMaxPrice())
             ;
         }
 
